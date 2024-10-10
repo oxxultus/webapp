@@ -69,7 +69,7 @@
 <p><i>"이 부분"</i>은 단순히 글씨가 이탤릭체인 부분이에요!</p>
 ```
 
-- <em\></em\>태그는 텍스트를 이탤릭체 뿐만 아니라 그 내용이 중요하다는 의미도 함께 포함해 줍니다.
+- <em\></em\>태그는 텍스트를 이탤릭체 뿐만 아니라 그 내용이 중요하다는 의미도 함께 포함해 줍니다.
 ```
 <p><em>"이 부분"</em>은 중요한 부분이라서 이탤릭체로 표현됐어요!</p>
 ```
@@ -184,3 +184,285 @@
 </a>
 ```
 
+- 이미지의 크기 설정
+```
+<style>
+    img {
+        width:100%;
+        border: 1px solid black;
+    }
+</style>
+```
+
+```
+<img src="/examples/images/img_flag.png" alt="html size" width="320" height="214">
+```
+
+```
+<img src="/examples/images/img_flag.png" alt="style size" style="width:320px; height:214px">
+```
+
+- 이미지 테두리 설정
+```
+<img src="/examples/images/img_flag.png" alt="이미지 테두리" 
+    style="width:320px; height:214px; border: 3px solid black">
+```
+
+#### 리스트
+- 순수가 없는 리스트
+```
+<ul>
+    <li>사과</li>
+    <li>멜론</li>
+    <li>바나나</li>
+</ul>
+
+CSS의 list-style-type 속성을 사용하면 리스트 요소 앞에 위치하는 마커(marker)를 다른 모양으로 변경할 수 있습니다.
+
+- disc : 검정색 작은 원 모양 (기본설정)
+- circle : 흰색 작은 원 모양
+- square : 사각형 모양
+```
+
+- 순서가 있는 리스트
+```
+<ol>
+    <li>사과</li>
+    <li>멜론</li>
+    <li>바나나</li>
+</ol>
+```
+
+- 정의 리스트
+```
+<dl>
+    <dt>용어</dt>
+    <dd>용어에 대한 정의</dd>
+    <dt>용어</dt>
+    <dd>용어에 대한 정의</dd>
+</dl>
+```
+
+#### HTML 테이블(Table)
+```
+<table style="width:100%">
+    <tr style="background-color:lightgrey">
+        <th>참치</th>
+        <th>고래</th>      
+    </tr>
+    <tr>
+        <td>상어</td>
+        <td>문어</td>
+    </tr>
+    <tr>
+        <td>오징어</td>
+        <td>고등어</td>
+    </tr>
+</table>
+```
+- 테이블의 열 합치기
+```
+<table style="width:100%">
+    <tr>
+        <td>참치</td>
+        <td colspan="2">고래</td>        
+    </tr>
+    <tr>
+        <td>상어</td>
+        <td>문어</td>        
+        <td>꽁치</td>
+    </tr>
+</table>
+```
+- 테이블의 행 합치기
+```
+<table style="width:100%">
+    <tr>
+        <td rowspan="2">상어</td>
+        <td>문어</td>        
+        <td>꽁치</td>
+    </tr>
+    <tr>
+        <td>고등어</td>        
+        <td>돌고래</td>
+    </tr>
+</table>
+```
+- 테이블의 캡션 설정
+```
+<table style="width:100%">
+    <caption>캡션</caption>
+    <tr>
+        <td>참치</td>
+        <td>고래</td>
+        <td>날치</td>    
+    </tr>
+</table>
+```
+
+#### 블록과 인라인
+- 블록(block) 타입의 요소
+- display 속성값이 블록(block)인 요소는 언제나 새로운 라인(line)에서 시작하며, 해당 라인의 모든 너비를 차지합니다.
+```
+<p>, <div>, <h>, <ul>, <ol>, <form>
+```
+- <div\></div\>
+```
+<div style="">
+ 여기 부분의 스타일을 한번에 적용
+</div>
+```
+
+- 인라인(inline) 타입의 요소 
+- display 속성값이 인라인(inline)인 요소는 새로운 라인(line)에서 시작하지 않습니다.
+- 또한, 요소의 너비도 해당 라인 전체가 아닌 해당 HTML 요소의 내용(content)만큼만 차지합니다.
+```
+<span>, <a>, <img>
+```
+
+- <span\></span\>
+```
+<p>
+<span style="">해당 부분만 다른스타일 적용</span>
+</p>
+```
+
+#### iframe 
+- iframe 요소는 기본적으로 검정색 테두리(border)를 가집니다.
+- <a\> 태그의 target 으로 프레임 지정을 해주면 페이지 변경 가능
+```
+<iframe src="/css/intro" name="frame_target" style="width:100%; height:400px;"></iframe>
+<p>
+    <a href="/php/intro" target="frame_target">PHP 수업 확인하러 가기 =></a>
+</p>
+```
+
+> class 와 id 의 차이는 class 는 복수사용, class 는 단일 사용
+
+#### form 요소
+- GET 방식은 주소에 데이터(data)를 추가하여 전달하는 방식입니다. 데이터가 주소 입력창에 그대로 나타나며, 전송할 수 있는 데이터의 크기 또한 제한적입니다. 따라서 검색 엔진의 쿼리(query)와 같이 크기가 작고 중요도가 낮은 정보를 보낼 때 주로 사용합니다.
+
+- POST 방식은 데이터(data)를 별도로 첨부하여 전달하는 방식입니다. 데이터가 외부에 드러나지 않으며, 전송할 수 있는 데이터의 크기 또한 제한이 없습니다. 따라서 보안성 및 활용성이 GET 방식보다 좋습니다.
+```
+<form action="처리할페이지주소" method="get|post"></form>
+```
+
+#### input 요소
+- 텍스트 입력
+```
+<input\>태그의 type 속성 값을 "text"로 설정하면, 사용자로부터 한 줄의 텍스트를 입력 받을 수 있습니다.
+
+<input type="text" name="search">
+```
+- 비밀번호 입력
+```
+<input>태그의 type 속성값을 "password"로 설정하면, 사용자로부터 비밀번호를 입력받을 수 있습니다.
+
+<input type="password" name="password">
+```
+- 라디오 버튼
+```
+<input>태그의 type 속성값을 "radio"로 설정하면, 사용자로부터 여러 개의 옵션(option) 중에서 단 하나의 옵션만을 입력받을 수 있습니다.
+
+
+<input type="radio" name="lecture" value="html" checked> HTML <br>
+<input type="radio" name="lecture" value="css"> CSS <br>
+```
+- 체크 박스
+```
+<input>태그의 type 속성값을 "checkbox"로 설정하면, 사용자로부터 여러 개의 옵션 중에서 다수의 옵션을 입력받을 수 있습니다.
+
+<input type="checkbox" name="lecture" value="html" checked> HTML <br>
+<input type="checkbox" name="lecture" value="css"> CSS <br>
+<input type="checkbox" name="lecture" value="cpp" disabled> C++
+
+# disabled 속성을 이용하여 해당 옵션을 선택할 수 없게 설정할 수도 있습니다.
+```
+- 파일 선택
+```
+<input\>태그의 type 속성값을 "file"로 설정하면, 사용자로부터 파일을 전송받을 수 있습니다.
+
+<input type="file" name="upload_file" accept="image/*">
+# accept 속성을 이용하여 입력받을 수 있는 파일의 확장자 및 종류를 명시할 수 있습니다.
+```
+- 선택 입력
+```
+select 요소는 여러 개의 옵션이 드롭다운 리스트(drop-down list)로 되어 있으며, 그중에서 단 하나의 옵션만을 입력받을 수 있습니다.
+
+<select name="fruit">
+    <option value="apple"> 사과
+    <option value="orange" selected> 귤
+    <option value="strawberry"> 딸기
+    <option value="peach"> 복숭아
+</select>
+```
+- 문장 입력
+```
+textarea 요소는 사용자로부터 여러 줄의 텍스트를 입력받을 수 있습니다.
+
+<textarea name="message" rows="5" cols="30"></textarea>
+
+# rows 속성과 cols 속성을 이용하여 textarea 요소의 크기를 자유롭게 지정할 수 있습니다.
+```
+- 버튼
+```
+<button type="button" onclick="alert('버튼을 클릭하셨군요!')">
+    버튼을 눌러주세요.
+</button>
+```
+- 전송 버튼
+```
+<input>태그의 type 속성값을 "submit"으로 설정하면, 사용자로부터 입력받은 데이터(data)를 서버의 폼 핸들러로 제출하는 버튼을 만들 수 있습니다.
+폼 핸들러 -> action ="해당 부분" 으로 전송
+
+<form action="/examples/media/request.php">
+    어릴 때 자신의 별명을 적어주세요 : <br>
+    <input type="text" name="nickname" value="별명"><br><br>
+    <input type="submit" value="전송">
+</form>
+```
+- 필드셋(fieldset)
+```
+fieldset 요소는 form 요소와 관련된 데이터들을 하나로 묶어주는 역할을 합니다.
+legend 요소는 fieldset 요소 안에서만 사용할 수 있으며, fieldset 요소의 제목을 나타냅니다.
+
+<form action="/examples/media/request.php">
+    <fieldset>
+        <legend>입력 양식</legend>
+        이름 : <br>
+        <input type="text" name="username"><br>
+        이메일 : <br>
+        <input type="text" name="email"><br><br>
+        <input type="submit" value="전송">
+    </fieldset>
+</form>
+
+```
+
+##### input 요소의 속성
+- value 속성
+```
+value 속성은 input 요소의 입력 필드(input field)에 나타나는 초깃값을 설정합니다.
+```
+- readonly 속성
+```
+readonly 속성은 사용자가 입력 필드를 볼 수는 있으나, 수정할 수는 없도록 설정합니다.
+disabled 속성과 다른 점은 전송 버튼(submit)을 누르면 초깃값이 서버로 전송된다는 점입니다.
+```
+-  disabled 속성
+```
+disabled 속성은 사용자가 입력 필드를 아예 사용할 수 없도록 설정합니다.
+disabled 속성이 설정된 입력 필드는 사용할 수도 없고, 클릭할 수도 없습니다.
+또한, readonly 속성과는 달리 전송 버튼(submit)을 눌러도 초깃값이 서버로 전송되지 않습니다.
+```
+-  maxlength 속성
+```
+maxlength 속성은 입력 필드에 입력할 수 있는 문자의 최대 길이(length)를 설정합니다.
+```
+
+-  size 속성
+```
+size 속성은 입력 필드에 보여지는 input 요소의 크기(size)를 설정합니다.
+maxlength 속성과는 달리 입력 필드가 한 번에 보여줄 수 있는 문자의 최대 개수만을 의미합니다.
+따라서 입력될 수 있는 문자의 최대 길이는 maxlength 속성값에 따라 달라지며, size 속성과는 전혀 무관합니다.
+```
